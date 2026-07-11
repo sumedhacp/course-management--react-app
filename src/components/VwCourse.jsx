@@ -1,40 +1,26 @@
-import React, { useState } from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 
 const VwCourse = () => {
 
-    const [data, changeData] = useState(
+    const [data, changeData] = useState([])
 
-        [
-            {
-                "id": 1,
-                "course_name": "MERN Stack Bootcamp",
-                "created_at": "2026-07-11T13:59:49",
-                "duration": "8 Days",
-                "fee": 15000,
-                "mode": "Offline",
-                "trainer": "Anish"
-            },
-            {
-                "id": 2,
-                "course_name": "Generative AI for Professionals",
-                "created_at": "2026-07-11T13:59:49",
-                "duration": "10 Days",
-                "fee": 25000,
-                "mode": "Online",
-                "trainer": "Anish"
-            },
-            {
-                "id": 3,
-                "course_name": "React Corporate Training",
-                "created_at": "2026-07-11T13:59:49",
-                "duration": "3 Days",
-                "fee": 71000,
-                "mode": "Hybrid",
-                "trainer": "Anish"
+    const fetchData = () => {
+        axios.get(" https://host-demo-app.onrender.com/api/courses").then(
+
+            (response) => {
+                changeData(response.data)
             }
-        ]
 
+        ).catch()
+    }
+
+    useEffect(
+        () => {
+            fetchData()
+        }, []
     )
+
     return (
         <div>
 
