@@ -5,6 +5,8 @@ import heroImg from './assets/hero.png'
 import './App.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import InsertCourse from './components/InsertCourse'
+import viewCourse from './components/VwCourse'
+import VwCourse from './components/VwCourse'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -16,7 +18,7 @@ function App() {
         <Routes>
 
           <Route path='/' element={<InsertCourse />} />
-          <Route path='/view' element={ } />
+          <Route path='/view' element={<VwCourse />} />
 
 
         </Routes>
